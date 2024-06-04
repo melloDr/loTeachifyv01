@@ -1,4 +1,3 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -63,11 +62,11 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Main.cs" />
-    <Compile Include="AppDelegate.cs" />
-    <None Include="Entitlements.plist" />
-    <None Include="Info.plist" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Main.cs"/>
+    <Compile Include="AppDelegate.cs"/>
+    <Compile Include="Properties\AssemblyInfo.cs"/>
+    <None Include="Entitlements.plist"/>
+    <None Include="Info.plist"/>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
@@ -112,30 +111,30 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <BundleResource Include="Resources\icon_about.png" />
-    <BundleResource Include="Resources\icon_about%402x.png" />
-    <BundleResource Include="Resources\icon_about%403x.png" />
-    <BundleResource Include="Resources\icon_feed.png" />
-    <BundleResource Include="Resources\icon_feed%402x.png" />
-    <BundleResource Include="Resources\icon_feed%403x.png" />
-    <BundleResource Include="Resources\xamarin_logo.png" />
-    <BundleResource Include="Resources\xamarin_logo%402x.png" />
-    <BundleResource Include="Resources\xamarin_logo%403x.png" />
-    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    <BundleResource Include="Resources\icon_about.png"/>
+    <BundleResource Include="Resources\icon_about%402x.png"/>
+    <BundleResource Include="Resources\icon_about%403x.png"/>
+    <BundleResource Include="Resources\icon_feed.png"/>
+    <BundleResource Include="Resources\icon_feed%402x.png"/>
+    <BundleResource Include="Resources\icon_feed%403x.png"/>
+    <BundleResource Include="Resources\xamarin_logo.png"/>
+    <BundleResource Include="Resources\xamarin_logo%402x.png"/>
+    <BundleResource Include="Resources\xamarin_logo%403x.png"/>
+    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard"/>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Core" />
-    <Reference Include="Xamarin.iOS" />
-    <Reference Include="System.Numerics" />
-    <Reference Include="System.Numerics.Vectors" />
+    <Reference Include="System"/>
+    <Reference Include="System.Xml"/>
+    <Reference Include="System.Core"/>
+    <Reference Include="Xamarin.iOS"/>
+    <Reference Include="System.Numerics"/>
+    <Reference Include="System.Numerics.Vectors"/>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196"/>
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.0"/>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2"/>
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\Teachify\Teachify.csproj">
       <Project>{6DB6F41C-F638-46A5-AECD-EB1C35622617}</Project>
@@ -143,48 +142,49 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\changepassword.png" />
+    <BundleResource Include="Resources\changepassword.png"/>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\changepassword%402x.png" />
+    <BundleResource Include="Resources\changepassword%402x.png"/>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\changepassword%403x.png" />
+    <BundleResource Include="Resources\changepassword%403x.png"/>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\faq.png" />
+    <BundleResource Include="Resources\faq.png"/>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\faq%402x.png" />
+    <BundleResource Include="Resources\faq%402x.png"/>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\faq%403x.png" />
+    <BundleResource Include="Resources\faq%403x.png"/>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\home.png" />
+    <BundleResource Include="Resources\home.png"/>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\home%402x.png" />
+    <BundleResource Include="Resources\home%402x.png"/>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\home%403x.png" />
+    <BundleResource Include="Resources\home%403x.png"/>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\instructor.png" />
+    <BundleResource Include="Resources\instructor.png"/>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\instructor%402x.png" />
+    <BundleResource Include="Resources\instructor%402x.png"/>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\instructor%403x.png" />
+    <BundleResource Include="Resources\instructor%403x.png"/>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\logout.png" />
+    <BundleResource Include="Resources\logout.png"/>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\logout%402x.png" />
+    <BundleResource Include="Resources\logout%402x.png"/>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\logout%403x.png" />
+    <BundleResource Include="Resources\logout%403x.png"/>
   </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets"/>
 </Project>
