@@ -14,7 +14,7 @@ namespace Teachify
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
-            MainPage = new MasterPage();
+            MainPage = new NavigationPage(new LoginPage());
         }
 
         protected override void OnStart()
