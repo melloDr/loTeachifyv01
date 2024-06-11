@@ -4,31 +4,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Teachify.Services;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace Teachify.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ChangePasswordPage : ContentPage
+    public partial class SignUpPage : ContentPage
     {
-        public ChangePasswordPage()
+        public SignUpPage()
         {
             InitializeComponent();
         }
 
-        private async void btnChangePassword_Clicked(object sender, EventArgs e)
+        private async void btnSignUp_Clicked(object sender, EventArgs e)
         {
             ApiService apiService = new ApiService();
-            var response = await apiService.ChangePassword(entOldPassword.Text, entNewPassword.Text, entConfirmPassword.Text);
+            bool response = await apiService.RegisterUser(EntEmail.Text, EntPassword.Text, EntConfirmPassword.Text);
             if (!response)
             {
                 await DisplayAlert("Oops", "Something wrong", "Cancel");
             }
             else
             {
-                await DisplayAlert("Password changed", "Kindly login with the new password", "Alright");
-                Application.Current.MainPage = new NavigationPage(new LoginPage());
+                await DisplayAlert("Hi", "Your account has been created", "Alright");
+                await Navigation.PopToRootAsync();
             }
         }
     }

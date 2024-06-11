@@ -10,25 +10,25 @@ using Xamarin.Forms.Xaml;
 namespace Teachify.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ChangePasswordPage : ContentPage
+    public partial class ForgotPasswordPage : ContentPage
     {
-        public ChangePasswordPage()
+        public ForgotPasswordPage()
         {
             InitializeComponent();
         }
 
-        private async void btnChangePassword_Clicked(object sender, EventArgs e)
+        private async void btnSend_Clicked(object sender, EventArgs e)
         {
             ApiService apiService = new ApiService();
-            var response = await apiService.ChangePassword(entOldPassword.Text, entNewPassword.Text, entConfirmPassword.Text);
+            var response = await apiService.PasswordRecovery(entEmail.Text);
             if (!response)
             {
                 await DisplayAlert("Oops", "Something wrong", "Cancel");
             }
             else
             {
-                await DisplayAlert("Password changed", "Kindly login with the new password", "Alright");
-                Application.Current.MainPage = new NavigationPage(new LoginPage());
+                await DisplayAlert("Hi", "A new password has been sent to your email. Kindly type new password", "Alright");
+                await Navigation.PopToRootAsync();
             }
         }
     }

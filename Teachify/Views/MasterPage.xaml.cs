@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -43,8 +43,10 @@ namespace Teachify.Views
 
         private void TapLogout_Tapped(object sender, EventArgs e)
         {
-            Detail = new NavigationPage(new LogoutPage());
-            IsPresented = false;
+            Preferences.Set("useremail", string.Empty);
+            Preferences.Set("password", string.Empty);
+            Preferences.Set("accesstoken", string.Empty);
+            Application.Current.MainPage = new NavigationPage(new LoginPage()); 
         }
     }
 }

@@ -8,23 +8,38 @@ using Newtonsoft.Json;
 using Teachify.Models;
 using System.Net;
 using System.Net.Http.Headers;
+using Xamarin.Essentials;
 
 namespace Teachify.Services
 {
     public class ApiService
-    {
+    { 
+    //    public async Task<bool> RegisterUser(string email, string password, string confirmPassword) // done 
+    //    {
+    //        var registerModel = new RegisterModel()
+    //        {
+    //            email = email,
+    //            password = password,
+    //            confirmPassword = confirmPassword
+    //        };
+    //        var httpClient = new HttpClient(); // install Newtonsoft.Json
+    //        var json = JsonConvert.SerializeObject(registerModel);
+    //        var content = new StringContent(json, Encoding.UTF8, "application/json");
+    //        var response = await httpClient.PostAsync("https://loteachifyv03.azurewebsites.net/api/Account/Register", content);
+    //        return response.IsSuccessStatusCode;
+    //    }
         public async Task<bool> RegisterUser(string email, string password, string confirmPassword) // done 
         {
             var registerModel = new RegisterModel()
             {
-                Email = email,
-                Password = password,
-                ConfirmPassword = confirmPassword
+                email = email,
+                password = password,
+                confirmPassword = confirmPassword
             };
             var httpClient = new HttpClient(); // install Newtonsoft.Json
             var json = JsonConvert.SerializeObject(registerModel);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = await httpClient.PostAsync("https://loteachifyv03.azurewebsites.net/api/Account/Register", content);
+            var response = await httpClient.PostAsync("https://loteachifyv03.azurewebsites.net/api/Account/Register" , content);
             return response.IsSuccessStatusCode;
         }
         public async Task<resultTokenModel> GetToken(string email, string password) // done
@@ -59,7 +74,7 @@ namespace Teachify.Services
             };
             var json = JsonConvert.SerializeObject(changePasswordModel);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", "Put Your Access Token Here...");
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accesstoken",""));
             var response = await httpClient.PostAsync("https://loteachifyv03.azurewebsites.net/api/Account/ChangePassword", content);// customLink
             return response.IsSuccessStatusCode;
         }
@@ -68,21 +83,21 @@ namespace Teachify.Services
             var httpClient = new HttpClient();
             var json = JsonConvert.SerializeObject(instructor);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", "Put Your Access Token Here...");
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accesstoken", ""));
             var response = await httpClient.PostAsync("https://loteachifyv03.azurewebsites.net/api/Instructor/instructor", content);
             return response.StatusCode == HttpStatusCode.Created;
         }
         public async Task<List<Instructor>> GetIntructors() // Done
         {
             var httpClient = new HttpClient();
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", "Put Your Access Token Here...");
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accesstoken", ""));
             var response = await httpClient.GetStringAsync("https://loteachifyv03.azurewebsites.net/api/Instructor/instructors");
             return JsonConvert.DeserializeObject<List<Instructor>>(response);
         }
         public async Task<Instructor> GetIntructor(Guid id) // Done
         {
             var httpClient = new HttpClient();
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", "Put Your Access Token Here...");
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accesstoken", ""));
             var response = await httpClient.GetStringAsync("https://loteachifyv03.azurewebsites.net/api/Instructor/instructors?id=" + id);
             return JsonConvert.DeserializeObject<Instructor>(response);
         }
