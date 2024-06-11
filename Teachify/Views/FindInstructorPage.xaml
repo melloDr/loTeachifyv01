@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Teachify.Views.FindInstructorPage">
+    <ContentPage.Content>
+        <StackLayout Margin="20" Padding="20">
+            <Picker Title="Subject" x:Name="PickerCourse"></Picker>
+            <Picker Title="City" x:Name="PickerCity"></Picker>
+            <Picker Title="Gender" x:Name="PickerGender">
+                <Picker.Items>
+                    <x:String>Male</x:String>
+                    <x:String>Female</x:String>
+                    <x:String>Others</x:String>
+                </Picker.Items>
+            </Picker>
+            <Button TextColor="Wheat" BackgroundColor="#ff9f00" Text="Search" x:Name="btnSearchInstructor" Clicked="btnSearchInstructor_Clicked"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

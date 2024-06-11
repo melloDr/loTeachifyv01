@@ -2,11 +2,38 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Teachify.Views.HomePage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem  IconImageSource="search.png" x:Name="tbSearch" Clicked="tbSearch_Clicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Home Page!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ListView SeparatorVisibility="None" HasUnevenRows="True" 
+                  x:Name="lvInstructors" ItemSelected="lvInstructors_ItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame Padding="5" HasShadow="True">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="80"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="80"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="0.33*"/>
+                                    <RowDefinition Height="0.33*"/>
+                                    <RowDefinition Height="0.33*"/>
+                                </Grid.RowDefinitions>
+                                <Image Source="{Binding ImageArray}" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"/>
+                                <Label Text="{Binding Name}" Grid.Row="0" Grid.Column="1"/>
+                                <Label Text="{Binding Experience}" Grid.Row="1" Grid.Column="1"/>
+                                <Label Text="{Binding CourseDomain}" Grid.Row="2" Grid.Column="1"/>
+                                <Label Text="{Binding HourlyRate}" Grid.Row="0" Grid.Column="2"/>
+                                <Label Text="{Binding City}" Grid.Row="1" Grid.Column="2"/>
+                            </Grid>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </ContentPage.Content>
 </ContentPage>
