@@ -27,16 +27,14 @@ namespace Teachify.Services
             var response = await httpClient.PostAsync("https://loteachifyv03.azurewebsites.net/api/Account/Register", content);
             return response.IsSuccessStatusCode;
         }
-        public async Task<TokenResponse> GetToken(string email, string password) // done
+        public async Task<resultTokenModel> GetToken(string email, string password) // done
         {
             var httpClient = new HttpClient();
-            var content = new StringContent($"email={email}&password={password}",
-                Encoding.UTF8,
-                "application/x-www-form-urlencoded");
-            var response = await httpClient.PostAsync("https://loteachifyv03.azurewebsites.net/api/Account/Token", content);
-            var jsonResult = await response.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<TokenResponse>(jsonResult);
-            return result;
+            var response = await httpClient.GetStringAsync("https://loteachifyv03.azurewebsites.net/api/Account/Token?email=" + email + "&password=" + password);
+            var tokenResponse = JsonConvert.DeserializeObject<resultTokenModel>(response);
+            return tokenResponse;
+            //var result = JsonConvert.DeserializeObject<TokenResponse>(jsonResult);
+            //return result;
         }
         public async Task<bool> PasswordRecovery(string email) // Done
         {

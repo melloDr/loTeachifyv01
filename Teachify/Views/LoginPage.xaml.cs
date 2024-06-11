@@ -21,7 +21,7 @@ namespace Teachify.Views
         {
             ApiService apiService = new ApiService();
             var response = await apiService.GetToken(EntEmail.Text, EntPassword.Text);
-            if (response.access_token == null && string.IsNullOrEmpty(response.access_token))
+            if (response.Data.access_token == null || string.IsNullOrEmpty(response.Data.access_token))
             {
                 DisplayAlert("Error", "Something wrong", "Alright");
             }

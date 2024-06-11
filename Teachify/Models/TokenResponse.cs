@@ -15,4 +15,13 @@ namespace Teachify.Models
         public string expires { get; set; }      
         
     }
+
+    public class resultTokenModel
+    {
+        public bool IsSuccess { get; set; }
+        public int Code { get; set; }
+        public TokenResponse Data { get; set; }
+        public object ResponseFailed { get; set; }
+        public string Message { get; set; }
+    }
 }
