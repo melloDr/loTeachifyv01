@@ -117,13 +117,15 @@ namespace Teachify.Services
         {
             var httpClient = new HttpClient();
             var response = await httpClient.GetStringAsync("https://loteachifyv03.azurewebsites.net/api/City/cities");
-            return JsonConvert.DeserializeObject<List<City>>(response);
+            ResultCitiesModel model = JsonConvert.DeserializeObject<ResultCitiesModel>(response);
+            return model.Data;
         }
         public async Task<List<Course>> GetCourses() // done
         {
             var httpClient = new HttpClient();
             var response = await httpClient.GetStringAsync("https://loteachifyv03.azurewebsites.net/api/Course/courses");
-            return JsonConvert.DeserializeObject<List<Course>>(response);
+            ResultCoursesModel model = JsonConvert.DeserializeObject<ResultCoursesModel>(response);
+            return model.Data;
         }
     }
 }

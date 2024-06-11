@@ -4,8 +4,8 @@
              x:Class="Teachify.Views.FindInstructorPage">
     <ContentPage.Content>
         <StackLayout Margin="20" Padding="20">
-            <Picker Title="Subject" x:Name="PickerCourse"></Picker>
-            <Picker Title="City" x:Name="PickerCity"></Picker>
+            <Picker ItemDisplayBinding="{Binding Name}" Title="Subject" x:Name="PickerCourse"></Picker>
+            <Picker ItemDisplayBinding="{Binding Name}" Title="City" x:Name="PickerCity"></Picker>
             <Picker Title="Gender" x:Name="PickerGender">
                 <Picker.Items>
                     <x:String>Male</x:String>
